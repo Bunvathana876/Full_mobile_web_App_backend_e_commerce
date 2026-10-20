@@ -1,0 +1,11 @@
+.git
+.gitignore
+.DS_Store
+.pytest_cache
+*.log
+node_modules
+.next
+build
+.dart_tool
+.venv
+
