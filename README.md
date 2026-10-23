@@ -93,6 +93,7 @@ graph TD
 - **Customer & Review Management**: Customer account lookup, purchase history inspection, and product review moderation (approve/reject/flag).
 - **Merchant & Seller Management**: Multi-vendor / seller profiles, performance metrics, and commission settings.
 - **Notification Center**: System-wide notifications, broadcast messages, unread counters, and mark-all-as-read controls.
+- **Point of Sale (POS) Retail Register**: High-speed touch-friendly cashier interface (`/admin/pos`) with barcode input, category quick-pills, stock level alerts, instant cart adjustments, discount & tax calculation, order parking/holding, multiple payment methods (Cash with change calculator, Card terminal, QR Code), and 80mm thermal receipt printing (`window.print()`).
 - **Security & Session Handling**: Smart JWT expiration checks, automatic stale-session logout, and route protection guards.
 
 ### ⚙️ Backend & REST API Engine
@@ -208,6 +209,23 @@ The database is pre-seeded with default administrative and customer accounts:
 - **Password**: `password123`
 - **Role**: `customer`
 
+### Seller Center / Merchant Accounts
+#### Seller 1 (Electronics Store)
+- **Email**: `seller@ecommerce.com`
+- **Password**: `seller123`
+- **Role**: `seller`
+- **Store Name**: TechGadgets Official Store
+- **Owner**: Alex Rivera
+- **Portal & POS**: [http://localhost:3000/seller](http://localhost:3000/seller) & [http://localhost:3000/seller/pos](http://localhost:3000/seller/pos)
+
+#### Seller 2 (Fashion Boutique)
+- **Email**: `seller2@ecommerce.com`
+- **Password**: `seller123`
+- **Role**: `seller`
+- **Store Name**: Urban Chic Boutique
+- **Owner**: Sarah Chen
+- **Portal & POS**: [http://localhost:3000/seller](http://localhost:3000/seller) & [http://localhost:3000/seller/pos](http://localhost:3000/seller/pos)
+
 ### pgAdmin 4 Management UI
 - **URL**: [http://localhost:5050](http://localhost:5050)
 - **Login Email**: `admin@ecommerce.com`
@@ -294,6 +312,9 @@ Once the backend is running, visit:
 | `GET` | `/api/orders` | List user/admin orders | Yes |
 | `GET` | `/api/notifications` | User notification list | Yes |
 | `GET` | `/api/analytics/overview` | Admin KPI summary | Yes (Admin) |
+| `POST` | `/api/pos/checkout` | Process POS in-store sale | Yes (Staff/Admin) |
+| `GET` | `/api/pos/summary` | Today's POS register metrics | Yes (Staff/Admin) |
+| `GET` | `/api/pos/customers` | Lookup loyalty customers | Yes (Staff/Admin) |
 
 ---
 
